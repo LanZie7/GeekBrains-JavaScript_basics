@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15% discount</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        
+        // 4. Перед вами находится массив с продуктами, сегодня распродажа и вам нужно на каждый товар применить скидку 15%
+
+        const products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+
+        products.forEach(discountPrice => {
+            discountPrice.price = discountPrice.price - discountPrice.price * 0.15;
+        });
+
+        console.log(products); // 170, 765, 850
+
+    </script>
+</body>
+</html>
