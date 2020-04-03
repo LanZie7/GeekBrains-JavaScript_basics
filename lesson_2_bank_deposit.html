@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank deposit</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        /* 
+        6.** Программа должна спросить у пользователя число, это будет количество денег, которое он хочет
+        положить на счет в банке. Затем программа должна выдать примерно такое сообщение:
+        "Ваша сумма в 101 рубль успешно зачислена." - в случае если пользователь ввел 101.
+        "Ваша сумма в 10020 рублей успешно зачислена." - в случае если пользователь ввел 10020.
+        "Ваша сумма в 120104 рубля успешно зачислена." - в случае если пользователь ввел 120104.
+        То есть ваша задача выводить слово «рубль» в правильном падеже, в зависимости от введенного
+        числа.
+        */
+
+        /**
+        * Функция возвращает верный падеж для слова "рубль", в зависимости
+        * от переданного числа.
+        * @param {number} number количество рублей в виде числа.
+        * @returns {string} слово "рубль" в правильном падеже.
+        */
+
+        function getCase(number) {
+            let preLastDigit = getPreLastDigit(number);
+            if (preLastDigit == 1) {
+                return "рублей";
+            }
+            number = String(number);
+            let lastNumber = Number(number.charAt(number.length - 1));
+            switch (lastNumber) {
+                case 0:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    return "рублей";
+                case 1:
+                    return "рубль";
+                case 2:
+                case 3:
+                case 4:
+                    return "рубля";
+            }
+        }
+
+        /**
+        * Функция возвращает предпоследнюю цифру числа, если она есть, иначе null.
+        * @param {number} number
+        * @returns {(number|null)}
+        */
+
+        function getPreLastDigit(number) {
+            number = String(number);
+            let digit = number.charAt(number.length - 2);
+            if (digit !== "") {
+                return Number(digit);
+            }
+            return null;
+        }
+
+        let depositSum = +prompt("Введите, пожалуйста, сумму, которую Вы хотели бы положить на счёт: ");
+        alert(`Ваша сумма в размере ${depositSum} ${getCase(depositSum)} успешно зачислена!`);
+
+    </script>
+</body>
+</html>
