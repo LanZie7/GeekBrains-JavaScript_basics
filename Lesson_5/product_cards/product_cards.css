@@ -1,0 +1,25 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    grid-gap: 30px;
+}
+
+.product {
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    margin-top: 15px;
+    display: block;
+    padding: 5px;
+    width: 120px;
+}
+
+.description {
+    display: none;
+}
